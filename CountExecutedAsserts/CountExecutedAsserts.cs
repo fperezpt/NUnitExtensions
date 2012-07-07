@@ -24,6 +24,9 @@ namespace CountExecutedAsserts
         public void TestFinished(TestResult result) 
         {
             totalAssertsExecutedInThisRun = totalAssertsExecutedInThisRun + result.AssertCount;
+
+            if (!result.IsSuccess)
+                totalAssertsExecutedInThisRun++;
         }
         public void TestOutput(TestOutput testOutput) { }
         public void TestStarted(TestName testName) { }
